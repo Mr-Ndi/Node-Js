@@ -1,0 +1,6 @@
+# the folowing files will not be pushed! :).
+node_modules
+.env
+package-lock.json
+package.json
+todoApp.pdf
