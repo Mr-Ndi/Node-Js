@@ -31,38 +31,47 @@ function writing(Inputs) {
     });
     
 }
-console.log('\n---------------- Hello, umvax hano hari operation 2 zishoboka 2.------------------------\n');
-console.log('I.Reading a file\nII.Writting in a file\n');
-prompt.question('So enter your choice pls (1 to read or 2 to write ): ', (operation) => {
-switch (operation) {
-    case 1:
-        igihimba_cyandika();
-        break;
-    case 2:
-        igihimba_gisoma();
-    default:
-        console.log('Wowoh brother that operation doen\'t exist check the menu again pls');
-        break;
-}
-prompt.close();
-});
-process.exit(0);
 
-
-async function igihimba_cyandika() {
+async function igihimba_cyandika(input) {
     try{
-        const real_datum = await reading();
-        console.log(real_datum.toString())
+        const real_datum = await writing(input);
+        console.log('---------------------------------\nFile sample.txt was Updated sucessfully, you can read it for checking\n---------------------------------')
     }catch(error){
         console.log(new Error()+error)
+    }
+    finally{
+        prompt.close();
     }
 }
 
 async function igihimba_gisoma() {
     try{
         const real_datum = await reading();
-        console.log(real_datum.toString())
+        console.log('------------- The file Contains --------------------\n'+real_datum.toString()+'\n---------------------------------')
     }catch(error){
         console.log(new Error()+error)
     }
+    finally{
+        prompt.close();
+    }
 }
+
+// --------------------------------------------------------------------------
+console.log('\n---------------- Hello, umvax hano hari operation 2 zishoboka 2.------------------------\n');
+console.log('I.Reading a file\nII.Writting in a file\n');
+prompt.question('So enter your choice pls [1 to read or 2 to write ]: ', (operation) => {
+    const choice = parseInt(operation);
+
+    if (choice === 1) {
+        igihimba_gisoma()
+    } else if (choice === 2) {
+        prompt.question('---------------------------------\nThen if u choosed to write, What is the content to be written on file\t:',(input) =>{
+            console.log('---------------------------------\n');
+                        igihimba_cyandika(input);
+                    });
+    }
+    else {
+        console.log('Wowoh brother that operation doen\'t exist check the menu again pls');
+    }
+
+});
