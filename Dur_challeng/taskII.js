@@ -3,10 +3,7 @@ import doc from 'fs'
 import { resolve } from 'path';
 import readline from 'readline';
 
-const opera = readline.createInterface({
-    Input:process.stdin,
-    output: process.stdout
-});
+const prompt = readline.createInterface(process.stdin, process.stdout);
 
 function reading() {
     return new Promise((resolve, reject) => {
@@ -34,6 +31,23 @@ function writing(Inputs) {
     });
     
 }
+console.log('\n---------------- Hello, umvax hano hari operation 2 zishoboka 2.------------------------\n');
+console.log('I.Reading a file\nII.Writting in a file\n');
+prompt.question('So enter your choice pls (1 to read or 2 to write ): ', (operation) => {
+switch (operation) {
+    case 1:
+        igihimba_cyandika();
+        break;
+    case 2:
+        igihimba_gisoma();
+    default:
+        console.log('Wowoh brother that operation doen\'t exist check the menu again pls');
+        break;
+}
+prompt.close();
+});
+process.exit(0);
+
 
 async function igihimba_cyandika() {
     try{
@@ -52,17 +66,3 @@ async function igihimba_gisoma() {
         console.log(new Error()+error)
     }
 }
-console.log('\n---------------- Hello, umvax hano hari operation 2 zishoboka 2.------------------------\n');
-console.log('I.Reading a file\nII.Writting in a file\n\nSo enter 1 to read or 2 to write pl');
-opera.question('Enter your choice (1 or 2): ', (operation) => {
-switch (operation) {
-    case 1:
-        igihimba_cyandika();
-        break;
-    case 2:
-        igihimba_gisoma();
-    default:
-        console.log('Wowoh brother that operation doen\'t exist check the menu again pls');
-        break;
-}
-})
