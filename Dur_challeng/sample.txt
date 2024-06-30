@@ -1,0 +1,3 @@
+Hello, fellowmen.
+I'm mr Ndi.
+This is the sample file to be used in dealing with task 2.
