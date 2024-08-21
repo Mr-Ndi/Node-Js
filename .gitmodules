@@ -1,0 +1,11 @@
+[submodule "DUR-tasks"]
+    path = DUR-tasks
+    url = https://github.com/Mr-Ndi/DUR-tasks
+
+[submodule "Learn_with_Moshi"]
+    path = Learn_with_Moshi
+    url = https://github.com/Mr-Ndi/Learn_with_Moshi
+
+[submodule "Node-Ninja"]
+    path = Node-Ninja
+    url = https://github.com/Mr-Ndi/Node-Ninja
