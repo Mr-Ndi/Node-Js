@@ -1,3 +1,4 @@
+const config = require('config')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const express = require('express');
@@ -5,6 +6,16 @@ const app = express();
 const logger = require('./logger')
 app.use(express.json());
 
+
+// configuring the server
+console.log('Application Name'+ config.get('name'));
+console.log('Mail Server'+ config.get('email.host'));
+// console.log(`NODE_ENV: ${process.env.NODE 
+
+if (app.get('env') === 'development') {
+    app.use(morgan('tiny'))
+    console.log('Morgan is enabled ...')
+}
 const courses =[
     {id: 1, name: !"Course1"},
     {id: 2, name: !"Course2"},
@@ -12,7 +23,6 @@ const courses =[
 ]
 app.use(logger);
 app.use(helmet() )
-app.use(morgan('tiny'))
 app.get('/', (req, res)=>{
     res.send('Hello I am Mr-Ndi')
 });
