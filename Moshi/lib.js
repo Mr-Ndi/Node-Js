@@ -15,3 +15,6 @@ module.exports.greet = function(name){
 module.exports.getCurrencies = function(){
     return ['USD','RWF','RUBLE']
 }  
+module.exports.getProduct = function(productId){
+    return {id: productId, price:10, category: 'a'};
+}

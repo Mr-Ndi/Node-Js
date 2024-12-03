@@ -49,3 +49,13 @@ describe('ifarangaRyemewe',()=>{
         expect(result).toEqual(expect.arrayContaining(['USD','RWF','RUBLE']))
     });
 });
+
+describe('getProduct',()=>{
+    it('should return a product with a given id',()=>{
+        const result = lib.getProduct(1)
+
+        // expect(result).toEqual({id:1,price:10})
+        expect(result).toMatchObject({id:1, price:10})
+        expect(result).toHavePropety('id',1)
+    });
+});
