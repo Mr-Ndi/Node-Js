@@ -24,4 +24,28 @@ describe('Indamukanyo',()=>{
         expect(result).toMatch(/Mr Ndi/)
         expect(result).toContain('Mr Ndi')
     });
-})
+});
+
+describe('ifarangaRyemewe',()=>{
+    it('should return supported currency',()=>{
+        const result = lib.getCurrencies();
+
+        // Asserting that is too general
+        expect(result).toBeDefined();
+        expect(result).not.toBeNull();
+
+        // Assertion that are too specific
+        expect(result[0]).toBe('USD')
+        expect(result[1]).toBe('RWF')
+        expect(result[2]).toBe('RUBLE')
+        expect(result.length).toBe(3)
+
+        // Testing the function in the proper way
+        expect(result).toContain('USD')
+        expect(result).toContain('RWF')
+        expect(result).toContain('RUBLE')
+
+        // Ideal way
+        expect(result).toEqual(expect.arrayContaining(['USD','RWF','RUBLE']))
+    });
+});
