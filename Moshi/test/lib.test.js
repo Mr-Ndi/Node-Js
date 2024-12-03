@@ -16,4 +16,12 @@ describe('absolute',()=>{
         const result = lib.absolute(0);
         expect(result).toBe(0);
     });
+});
+
+describe('Indamukanyo',()=>{
+    it('should return a greeting message', ()=>{
+        const result = lib.greet('Mr Ndi')
+        expect(result).toMatch(/Mr Ndi/)
+        expect(result).toContain('Mr Ndi')
+    });
 })
