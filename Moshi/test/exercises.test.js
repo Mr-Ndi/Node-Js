@@ -3,6 +3,9 @@ const exer = require('../exercise1')
 describe('fizzBuzz', ()=>{
     it('should throw an error in case non integer input is given',()=>{
         expect(()=> {fizzBuzz(NaN); }).toThrow();
+        expect(()=> {fizzBuzz(null); }).toThrow();
+        expect(()=> {fizzBuzz(''); }).toThrow();
+        expect(()=> {fizzBuzz(undefined); }).toThrow();
     });
 
     it('should return FizzBuzz for number divisible by 3 and 5',()=>{
