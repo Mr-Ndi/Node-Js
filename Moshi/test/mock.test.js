@@ -12,3 +12,18 @@ describe('applyDiscount',() =>{
         expect(order.totalPrice).toBe(9); 
     });
 });
+
+describe('notifyCustomer', () =>{
+    it('should send email to the customer',() =>{
+        db.getCustomerSync = function(customerId){
+            return {email: 'a'};
+        }
+
+        let mailSent = false;
+        mail.send = function(email, message){
+            mailSent=true
+        }
+        fakes.notifyCustomer({ customerId: 1})
+        expect(mailSent).toBe(true);
+    });
+});
