@@ -1,6 +1,3 @@
-// const db = require('./db');
-// const sendMail = require('./mail');
-
 //testing number
 module.exports.absolute = function (number) {
     return (number >= 0)? number: -number;
