@@ -56,6 +56,28 @@ describe('getProduct',()=>{
 
         // expect(result).toEqual({id:1,price:10})
         expect(result).toMatchObject({id:1, price:10})
-        expect(result).toHavePropety('id',1)
+        expect(result).toHaveProperty('id',1)
+    });
+});
+
+describe('registerUser',()=>{
+    it('should throw if username is falsy', ()=>{
+        // But what are the falsely, in short those are :
+            // 1. Null
+            // 2. undefined
+            // 3. '' --| empty string
+            // 4. 0
+            // 5. false
+        // expect(() => { lib.registerUser(null) }).toThrow();
+        const args =[null,undefined,NaN,'',0,false]
+        args.forEach(a =>{
+            expect(() => { lib.registerUser(a) }).toThrow();
+        })
+
+    });
+    it('should return a user object if valid username is passed',()=>{
+        const result = lib.registerUser('Ndi')
+        expect(result).toMatchObject({ username:'Ndi' });
+        expect(result.id).toBeGreaterThan(0);
     });
 });
